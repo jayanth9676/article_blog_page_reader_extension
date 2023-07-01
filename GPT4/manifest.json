@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "Web Page Reader",
+    "version": "1.0",
+    "description": "A Chrome extension to read web pages aloud.",
+    "permissions": ["tabs", "activeTab"],
+    "action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html",
+        "default_title": "Web Page Reader"
+    },
+    "background": {
+        "service_worker": "src/background/Background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["src/content/Content.js"]
+        }
+    ]
+}
